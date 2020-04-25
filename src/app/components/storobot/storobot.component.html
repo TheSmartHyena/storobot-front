@@ -1,0 +1,71 @@
+<div class="container">
+
+    <div class="row mb-4">
+        <div class="col">
+            <h3 class="text-center"> Add a robot </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Robot Name</label>
+                <input #newRobotName class="form-control" type="text" placeholder="Type robot name here" id="robotName">
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Robot type</label>
+                <select #newRobotType class="form-control selectClass" id="robotType">
+                    <option value="assembly">Assembly robot</option>
+                    <option value="defense">Defense robot</option>
+                    <option value="secretary">Secretary robot</option>
+                    <option value="welcome">Welcome robot</option>
+                    <option value="exploration">Exploration robot</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Robot price</label>
+                <input #newRobotPrice class="form-control" type="text" placeholder="Type robot price here" id="robotPrice">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <button class="btn btn-primary w-100" (click)="addRobot(newRobotName.value, newRobotType.value, newRobotPrice.value)" id="addButton">Add</button>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <h3 class="text-center"> Available robot list </h3>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col" >
+            <div id="robotContainer">
+
+                <div *ngFor="let robot of robots" class="card ml-3 mg-3 mb-3 robot" style="width: 18rem;">
+                    <img class="card-img-top robotImage" src="assets/{{robot.type}}.jpg" alt="{{robot.type}} robot image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"> {{robot.name}} </h5>
+                        <p class="card-text"> <strong> Type: </strong> {{robot.type}} robot </p>
+                        <p class="card-text"> <strong> Price: </strong> {{robot.price}} $ (USD) </p>
+                        <div class="text-center">
+                            <button  (click)="deleteRobot(robot._id)" class="btn btn-primary center sellRobotButton"> Sell this robot </button>
+                            <a routerLinkActive="active" routerLink="/robot/{{robot._id}}">
+                                <button  class="btn btn-primary center"> View </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

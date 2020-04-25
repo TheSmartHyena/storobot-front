@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <div id="robotContainer">
+                <div *ngFor="let robot of robots" class="card ml-3 mg-3 mb-3 robot" style="width: 18rem;">
+                    <img class="card-img-top robotImage" src="assets/{{robot.type}}.jpg" alt="{{robot.type}} robot image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title"> {{robot.name}} </h5>
+                        <p class="card-text"> <strong> Type: </strong> {{robot.type}} robot </p>
+                        <p class="card-text"> <strong> Price: </strong> {{robot.price}} $ (USD) </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

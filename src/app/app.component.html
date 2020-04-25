@@ -1,0 +1,49 @@
+<!-- <div
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+  <h5 class="my-0 mr-md-auto font-weight-normal">Angular Mean Auth</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a *ngIf="this.authService.isLoggedIn" class="p-2 text-dark">User Profile</a>
+    <a *ngIf="!this.authService.isLoggedIn" class="p-2 text-dark" routerLinkActive="active" routerLink="/log-in">Sign
+      in</a>
+  </nav>
+  <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-primary" routerLinkActive="active"
+    routerLinkActive="active" routerLink="/sign-up">Sign up</a>
+  <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
+</div>-->
+
+<!-- Image and text -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+    <a *ngIf="!this.authService.isLoggedIn" class="navbar-brand" href="/log-in">
+        <img src="assets/robot.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Store-o-bot
+    </a>
+    <a *ngIf="this.authService.isLoggedIn" class="navbar-brand" href="/">
+        <img src="assets/robot.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Store-o-bot
+    </a>
+    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li *ngIf="!this.authService.isLoggedIn" class="nav-item">
+                <a class="nav-link" href="/log-in">Sign-in <span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="this.authService.isLoggedIn" class="nav-item">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="this.authService.isLoggedIn" class="nav-item">
+                <a class="nav-link" href="/storobot">Stor-o-bot<span class="sr-only">(current)</span></a>
+            </li>
+            <li *ngIf="this.authService.isLoggedIn" class="nav-item">
+                <a class="nav-link" href="/user-profile">Profile <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+
+        <a *ngIf="!this.authService.isLoggedIn" type="button" class="btn btn-outline-white" routerLink="/sign-up"> Sign-up </a>
+        <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-outline-white">Logout</button>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
